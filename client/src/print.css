@@ -1,0 +1,20 @@
+/* print.css */
+
+.receipt {
+    /* Common styles for receipt div */
+}
+
+.receipt.visible {
+    display: block;
+}
+
+.receipt.hidden {
+    display: none;
+}
+
+@media print {
+    /* Styles for print media */
+    .receipt.hidden {
+        display: block;
+    }
+}
