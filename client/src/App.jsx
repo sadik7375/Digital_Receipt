@@ -17,7 +17,7 @@ function App() {
   return (
     <>
    <ToastContainer />
-   <BrowserRouter   >
+   {/* <BrowserRouter   >
  <Routes>
         <Route path="/" element={<Home></Home>} />      
         <Route path="/paymentreceipt" element={<PaymentReceipt></PaymentReceipt>} />
@@ -27,7 +27,8 @@ function App() {
        
     
       </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
+      <p>sadik</p>
 
     </>
   )
