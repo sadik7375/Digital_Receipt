@@ -1,7 +1,7 @@
 {
     "name": "client_payement_receipt",
     "homepage": " https://sadik7375.github.io/Digital_Receipt",
-    "private": true,
+    "private": false,
     "version": "0.0.0",
     "type": "module",
     "scripts": {

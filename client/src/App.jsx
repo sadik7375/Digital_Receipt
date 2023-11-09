@@ -9,7 +9,7 @@ import Home from './pages/Home';
 import TuitionFee from './pages/rentReceipt';
 import TuitionfeeReceipt from './pages/TuitionfeeReceipt';
 import { BrowserRouter } from 'react-router-dom';
-import { HashRouter } from "react-router-dom";
+
 
 function App() {
 
@@ -17,22 +17,9 @@ function App() {
   return (
     <>
    <ToastContainer />
-   <HashRouter    >
-   <Routes>
-        <Route path="/" element={<Home></Home>} />      
-        <Route path="/paymentreceipt" element={<PaymentReceipt></PaymentReceipt>} />
-        <Route path="/rentreceipt" element={<RentReceipt></RentReceipt>} />
-        <Route path="/invoice" element={<Invoice></Invoice>} />
-        <Route path="/tuitionfeereceipt" element={<TuitionfeeReceipt></TuitionfeeReceipt>} />
-       
-    
-      </Routes>
-  </HashRouter>,
-
-
-   {/* <BrowserRouter basename='/Digital_Receipt'   >
+   <BrowserRouter   >
  <Routes>
-        <Route path="/Digital_Receipt" element={<Home></Home>} />      
+        <Route extract path="/" element={<Home></Home>} />      
         <Route path="/paymentreceipt" element={<PaymentReceipt></PaymentReceipt>} />
         <Route path="/rentreceipt" element={<RentReceipt></RentReceipt>} />
         <Route path="/invoice" element={<Invoice></Invoice>} />
@@ -40,7 +27,7 @@ function App() {
        
     
       </Routes>
-      </BrowserRouter> */}
+      </BrowserRouter>
      
 
     </>
