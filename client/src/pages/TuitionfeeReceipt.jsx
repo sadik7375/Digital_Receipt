@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 // import '../print.css'
 const TuitionfeeReceipt = () => {
 
-  const [showReceipt, setShowReceipt] = useState(false);
+  const [showReceipt, setShowReceipt] = useState(true);
 
   const [studentid,setstudentid]=useState("");
   const [studentname,setstudentname]=useState();
@@ -330,68 +330,80 @@ const TuitionfeeReceipt = () => {
 
               <div className="container  mx-auto mt-10 md:max-w-xl  md:mx-auto lg:max-w-xl xl:mx-auto   ">
           
-          <div className="bg-white p-8">
-          <h1 className="text-1xl font-semibold mb-4  text-gray-600 flex justify-center mr-16">Payment Receipt</h1>
+          <div className="bg-white ">
+            <div className='bg-green-200 mb-8 '>
+          <h1 className="text-1xl font-semibold mb-4  text-gray-600 flex justify-center  mr-12">Payment Receipt</h1>
           <h1 className="text-1xl font-semibold mb-4  text-gray-600 flex justify-center mr-16">{address}</h1>
-              <div className="flex items-center space-x-4 mb-4">
-                <div className="flex-1">
-                  <label htmlFor="from"  className="block text-sm font-sm ml-8 text-gray-600 gap-x-4   ">
-                    Student ID:{studentid}
-                  </label>
-                  
-                  
-                </div>
-                
+          </div>
+              <div className="  flex items-center space-x-4 mb-4">
+              <div className="flex-1">
+ <div className="flex items-center">
+    <label htmlFor="paymentAmount" className=" text-sm font-bold ml-8 text-gray-600">
+      Student ID:
+    </label>
+    <p className="block text-sm  text-gray-600">{studentid}</p>
+ </div>
+</div>
+
     
-                <div className="flex-1">
-                  <p htmlFor="to" className="block text-sm ml-8  text-gray-600">
-                    Student Name:{studentname}
-                  </p>
-                
-                
-                </div>
+<div className="flex-1">
+ <div className="flex items-center">
+    <label htmlFor="paymentAmount" className=" font-bold  text-sm ml-8 text-gray-600">
+    Student Name:
+    </label>
+    <p className="block text-sm font-bol  text-gray-600">{studentname}</p>
+ </div>
+</div>
               </div>
               <div className="flex items-center space-x-4 mb-4">
-                <div className="flex-1">
-                  <p htmlFor="paymentAmount" className="block text-sm ml-8  text-gray-600">
-                   Tuition Fee:{payAmount}
-                  </p>
-                   
-                </div>
-                <div className="flex-1">
-                  <p htmlFor="dueAmount" className="block text-sm ml-8   text-gray-600">
-                    Extra Fee:{extrapayAmount}
-                  </p>
-                 
-                
-                </div>
+              <div className="flex-1">
+ <div className="flex items-center">
+    <label htmlFor="paymentAmount" className=" font-bold  text-sm ml-8 text-gray-600">
+      Tution Fee:
+    </label>
+    <p className="block text-sm  text-gray-600">{payAmount}</p>
+ </div>
+</div>
+<div className="flex-1">
+ <div className="flex items-center">
+    <label htmlFor="paymentAmount" className=" font-bold  text-sm ml-8 text-gray-600">
+     Extra Fee
+    </label>
+    <p className="block text-sm  text-gray-600">{extrapayAmount}</p>
+ </div>
+</div>
               </div>
             
            
               <div className="flex items-center space-x-4 mb-4">
-                <div className="flex-1">
-                  <p htmlFor="paymentAmount" className="block text-sm ml-8  text-gray-600">
-                    Discount:{discount}
-                  </p>
-                   
-                </div>
-                <div className="flex-1">
-                  <p htmlFor="dueAmount" className="block text-sm ml-8   text-gray-600">
-                    Payment Method:{paymethod}
-                  </p>
-                  
-                
-                </div>
+              <div className="flex-1">
+ <div className="flex items-center">
+    <label htmlFor="paymentAmount" className="font-bold  text-sm ml-8 text-gray-600">
+      Pay Date
+    </label>
+    <p className="block text-sm  text-gray-600">{payDate}</p>
+ </div>
+</div>
+<div className="flex-1">
+ <div className="flex items-center">
+    <label htmlFor="paymentAmount" className=" font-bold  text-sm ml-8 text-gray-600">
+       Waiver
+    </label>
+    <p className="block text-sm  text-gray-600">{discount}</p>
+ </div>
+</div>
               </div>
 
 
               <div className="flex items-center space-x-4 mb-4">
-                <div className="flex-1">
-                  <p htmlFor="paymentAmount" className="block text-sm ml-8  text-gray-600">
-                    Payment Date:{payDate}
-                  </p>
-                    
-                </div>
+              <div className="flex-1">
+ <div className="flex items-center">
+    <label htmlFor="paymentAmount" className="font-bold  text-sm ml-8 text-gray-600">
+      Payment Method
+    </label>
+    <p className="block text-sm  text-gray-600">{paymethod}</p>
+ </div>
+</div>
                 
               </div>
     
@@ -401,17 +413,18 @@ const TuitionfeeReceipt = () => {
                 </label>
                 {address}
               </div> */}
-              <div className="col-span-2">
-                <label htmlFor="notes" className="block text-sm  ml-8 text-gray-600">
-                  Notes:
-                </label>
-                {additionalNote}
-              </div>
-           
+           <div className="flex-1">
+ <div className="flex items-center">
+    <label htmlFor="paymentAmount" className="font-bold text-sm ml-8 text-gray-600">
+      Additional Notes:
+    </label>
+    <p className="block text-sm text-gray-600 border border-gray-800">{additionalNote}</p>
+ </div>
+</div>
            
             <div className="flex space-x-4 mt-4">
                 <div className="flex-1">
-                  <label htmlFor="senderSignature" className="block text-sm ml-8 text-gray-600 mb-8">
+                  <label htmlFor="senderSignature" className="font-bold block text-sm ml-8 text-gray-600 mb-8">
                     Sender Signature:
                   </label>
                   {photosign && (
@@ -432,7 +445,7 @@ const TuitionfeeReceipt = () => {
 )}
                 </div>
                 <div className="flex-1">
-                  <label htmlFor="receiverSignature" className="block text-sm text-gray-600 ml-8 mb-8">
+                  <label htmlFor="receiverSignature" className="font-bold block text-sm text-gray-600 ml-8 mb-8">
                     Receiver Signature:
                   </label>
                  

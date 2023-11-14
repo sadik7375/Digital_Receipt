@@ -11,6 +11,7 @@ import TuitionfeeReceipt from './pages/TuitionfeeReceipt';
 import { BrowserRouter } from 'react-router-dom';
 
 
+
 function App() {
 
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/rentreceipt" element={<RentReceipt></RentReceipt>} />
         <Route path="/invoice" element={<Invoice></Invoice>} />
         <Route path="/tuitionfeereceipt" element={<TuitionfeeReceipt></TuitionfeeReceipt>} />
+   
        
     
       </Routes>

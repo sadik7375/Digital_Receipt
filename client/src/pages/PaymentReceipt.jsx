@@ -241,7 +241,7 @@ const PaymentReceipt = () => {
                     value={payDate} onChange={(e)=>setpayDate(e.target.value)}
                   />
                 </div>
-                <div className="flex-1">
+                {/* <div className="flex-1">
                   <label htmlFor="dueAmount" className="block text-sm  text-gray-600">
                     Next Due Date
                   </label>
@@ -253,7 +253,7 @@ const PaymentReceipt = () => {
                     placeholder="Due Amount"
                     value={nextdueDate} onChange={(e)=>setnextdueDate(e.target.value)}
                   />
-                </div>
+                </div> */}
               </div>
     
      
@@ -324,76 +324,90 @@ const PaymentReceipt = () => {
 
               <div className="container  mx-auto mt-10 md:max-w-xl  md:mx-auto lg:max-w-xl xl:mx-auto   ">
           
-          <div className="bg-white p-8">
-          <h1 className="text-1xl font-semibold mb-4  text-gray-600 flex justify-center mr-16">Payment Receipt</h1>
+          <div className="bg-white ">
+          <div className='bg-green-200 mb-8 '>
+          <h1 className="text-1xl font-semibold mb-4  text-gray-600 flex justify-center  mr-12">Payment Receipt</h1>
+          
+          </div>
               <div className="flex items-center space-x-4 mb-4">
                 <div className="flex-1">
-                  <label htmlFor="from"  className="block text-sm font-sm text-gray-600 gap-x-4   ">
+                <div className="flex items-center">
+                  <label htmlFor="from"  className="underline text-sm font-bold ml-4 text-gray-600">
                     Sender Name:
                   </label>
                   <p>{senderName}</p>
-                  
+                  </div>
                 </div>
                 
     
                 <div className="flex-1">
-                  <label htmlFor="to" className="block text-sm  text-gray-600">
+                <div className="flex items-center">
+                  <label htmlFor="to" className=" text-sm font-bold ml-4 text-gray-600">
                     Receiver Name:
                   </label>
                   <p>{receiverName}</p>
-                
+                </div>
                 </div>
               </div>
               <div className="flex items-center space-x-4 mb-4">
                 <div className="flex-1">
-                  <label htmlFor="paymentAmount" className="block text-sm  text-gray-600">
+                <div className="flex items-center">
+                  <label htmlFor="paymentAmount" className=" text-sm font-bold ml-4 text-gray-600">
                     Payment Amount:
                   </label>
                     <p>{payAmount}</p>
+                    </div>
                 </div>
                 <div className="flex-1">
-                  <label htmlFor="dueAmount" className="block text-sm  text-gray-600">
+                <div className="flex items-center">
+                  <label htmlFor="dueAmount" className=" text-sm font-bold ml-4 text-gray-600">
                     Due Amount:
                   </label>
                   <p>{duepayAmount}</p>
-                
+                </div>
                 </div>
               </div>
             
            
               <div className="flex items-center space-x-4 mb-4">
                 <div className="flex-1">
-                  <label htmlFor="paymentAmount" className="block text-sm  text-gray-600">
+                <div className="flex items-center">
+                  <label htmlFor="paymentAmount" className=" text-sm font-bold ml-4 text-gray-600">
                     Payment Date
                   </label>
                     <p>{payDate}</p>
+                    </div>
                 </div>
-                <div className="flex-1">
+                {/* <div className="flex-1">
                   <label htmlFor="dueAmount" className="block text-sm  text-gray-600">
                     Next Due Date
                   </label>
                   <p>{nextdueDate}</p>
                 
-                </div>
+                </div> */}
               </div>
     
-            <div className="col-span-2">
-                <label htmlFor="address" className="block text-sm  text-gray-600">
+            <div className="col-span-2 mb-3">
+            <div className="flex items-center ">
+                <label htmlFor="address" className=" text-sm font-bold ml-4 text-gray-600">
                  Address:
                 </label>
                 {address}
+                </div>
               </div>
               <div className="col-span-2">
-                <label htmlFor="notes" className="block text-sm  text-gray-600">
+              <div className="flex items-center ">
+                <label htmlFor="notes" className=" text-sm font-bold ml-4  text-gray-600">
                   Notes:
                 </label>
                 {additionalNote}
+                </div>
               </div>
            
            
             <div className="flex space-x-4 mt-4">
                 <div className="flex-1">
-                  <label htmlFor="senderSignature" className="block text-sm ml-.5 text-gray-600 mb-8">
+                  <label htmlFor="senderSignature" className="block text-sm ml-5 font-bold text-gray-600 mb-8">
                     Sender Signature:
                   </label>
                   {photosign && (
@@ -402,7 +416,7 @@ const PaymentReceipt = () => {
       Sender Signature:
     </label> */}
 
-<div htmlFor="senderSignature" className="block text-sm ml-6 text-gray-600 mb-4">
+<div htmlFor="senderSignature" className="block text-sm  ml-6 text-gray-600 mb-4">
 <img
       src={URL.createObjectURL(photosign)}
       alt="Sender Signature"
@@ -414,7 +428,7 @@ const PaymentReceipt = () => {
 )}
                 </div>
                 <div className="flex-1">
-                  <label htmlFor="receiverSignature" className="block text-sm text-gray-600 ml-16 mb-8">
+                  <label htmlFor="receiverSignature" className="block font-bold text-sm text-gray-600 ml-16 mb-8">
                     Receiver Signature:
                   </label>
                  

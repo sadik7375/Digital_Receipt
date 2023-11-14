@@ -17,7 +17,7 @@ import 'react-toastify/dist/ReactToastify.css';
 // import '../print.css'
 const RentReceipt = () => {
 
-  const [showReceipt, setShowReceipt] = useState(false);
+  const [showReceipt, setShowReceipt] = useState(true);
 
   const [senderName,setsenderName]=useState("");
   const [receiverName,setreceiverName]=useState();
@@ -199,12 +199,7 @@ ${senderName}
          <FaWhatsapp className="text-[#00a884ff] cursor-pointer" size={28} />
         </button>
 
-        <button
-          className="rounded-md  text-white p-1 text-sm"
-          onClick={handleFacebook }
-        >
-        <FaFacebook className="text-blue-500 cursor-pointer" size={26} />
-        </button>
+      
                  
                  
                    
@@ -408,90 +403,105 @@ ${senderName}
 
               <div className="container  mx-auto mt-10 md:max-w-xl  md:mx-auto lg:max-w-xl xl:mx-auto   ">
           
-          <div className="bg-white p-8">
-          <h1 className="text-1xl font-semibold mb-4  text-gray-600 flex justify-center mr-16">Payment Receipt</h1>
+          <div className="bg-white ">
+          <div className='bg-green-200 mb-8 '>
+          <h1 className="text-1xl font-semibold mb-4  text-gray-600 flex justify-center  mr-12">Payment Receipt</h1>
+          
+          </div>
               <div className="flex items-center space-x-4 mb-4">
                 <div className="flex-1">
-                  <label htmlFor="from"  className="block text-sm font-sm text-gray-600 gap-x-4   ">
+                <div className="flex items-center">
+                  <label htmlFor="from"   className=" text-sm font-bold ml-8 text-gray-600">
                     Sender Name:
                   </label>
-                  <p>{senderName}</p>
-                  
+                  <p className="block text-md  text-gray-600" >{senderName}</p>
+                  </div>
                 </div>
                 
     
                 <div className="flex-1">
-                  <label htmlFor="to" className="block text-sm  text-gray-600">
+                <div className="flex items-center">
+                  <label htmlFor="to"  className=" text-sm font-bold ml-8 text-gray-600">
                     Receiver Name:
                   </label>
-                  <p>{receiverName}</p>
-                
+                  <p className="block text-md  text-gray-600">{receiverName}</p>
+                </div>
                 </div>
               </div>
               <div className="flex items-center space-x-4 mb-4">
                 <div className="flex-1">
-                  <label htmlFor="paymentAmount" className="block text-sm  text-gray-600">
+                <div className="flex items-center">
+                  <label htmlFor="paymentAmount"  className=" text-sm font-bold ml-8 text-gray-600">
                     Month Rent:
                   </label>
-                    <p>{monthlyRent}</p>
+                    <p className="block text-sm  text-gray-600">{monthlyRent}</p>
+                    </div>
                 </div>
                 <div className="flex-1">
-                  <label htmlFor="dueAmount" className="block text-sm  text-gray-600">
+                <div className="flex items-center">
+                  <label htmlFor="dueAmount"  className=" text-sm font-bold ml-8 text-gray-600">
                     Utility Money:
                   </label>
-                  <p>{utilityMoney}</p>
-                
+                  <p className="block text-md  text-gray-600">{utilityMoney}</p>
+                 </div>
                 </div>
               </div>
 
               <div className="flex items-center space-x-4 mb-4">
                 
                 <div className="flex-1">
-                  <label htmlFor="dueAmount" className="block text-sm  text-gray-600">
+                <div className="flex items-center">
+                  <label htmlFor="dueAmount" className=" text-sm font-bold ml-8 text-gray-600">
                     Advanced Money:
                   </label>
-                  <p>{advancePayment}</p>
-                
+                  <p className="block text-md  text-gray-600">{advancePayment}</p>
+                </div>
                 </div>
                 <div className="flex-1">
-                  <label htmlFor="dueAmount" className="block text-sm  text-gray-600">
+                <div className="flex items-center">
+                  <label htmlFor="dueAmount"  className=" text-sm font-bold ml-8 text-gray-600">
                    Total Rent:
                   </label>
-                  <p>{totalAmount}</p>
-                
+                  <p className="block text-md  text-gray-600">{totalAmount}</p>
+                </div>
                 </div>
               </div>
             
            
               <div className="flex items-center space-x-4 mb-4">
                 <div className="flex-1">
-                  <label htmlFor="paymentAmount" className="block text-sm  text-gray-600">
+                <div className="flex items-center">
+                  <label htmlFor="paymentAmount"  className=" text-sm font-bold ml-8 text-gray-600">
                     Payment Date
                   </label>
-                    <p>{payDate}</p>
+                    <p className="block text-sm  text-gray-600">{payDate}</p>
+                    </div>
                 </div>
                 <div className="flex-1">
-                  <label htmlFor="dueAmount" className="block text-sm  text-gray-600">
+                <div className="flex items-center">
+                  <label htmlFor="dueAmount"  className=" text-sm font-bold ml-8 text-gray-600">
                     Next Pay Date
                   </label>
-                  <p>{nextdueDate}</p>
-                
+                  <p className="block text-md  text-gray-600">{nextdueDate}</p>
+                </div>
                 </div>
               </div>
     
-            <div className="col-span-2">
-                <label htmlFor="address" className="block text-sm  text-gray-600">
+            <div className="col-span-2 mb-4">
+                <label htmlFor="address"  className=" text-sm font-bold ml-8 text-gray-600">
                  Address:
                 </label>
               
                 {address}
               </div>
               <div className="col-span-2">
-                <label htmlFor="notes" className="block text-sm  text-gray-600">
+              <div className="flex items-center">
+                <label htmlFor="notes"  className=" text-sm font-bold ml-8 text-gray-600">
                   Notes:
                 </label>
                 
-                {additionalNote}
+               <p className="block text-md text-gray-600">{additionalNote}</p> 
+               </div>
               </div>
            
            
@@ -500,7 +510,7 @@ ${senderName}
                
                
                 <div className="flex-1">
-                  <label htmlFor="senderSignature" className="block text-sm ml-.5 text-gray-600 mb-8">
+                  <label htmlFor="senderSignature"  className=" text-sm font-bold ml-8 text-gray-600">
                     Sender Signature:
                   </label>
                   {photo && (
@@ -523,12 +533,12 @@ ${senderName}
                   
                
                 </div>
-                {/* <div className="flex-1">
-                  <label htmlFor="receiverSignature" className="block text-sm text-gray-600 ml-16 mb-8">
+                <div className="flex-1">
+                  <label htmlFor="receiverSignature" className="block  font-bold text-sm text-gray-600 ml-16 mb-8 ">
                     Receiver Signature:
                   </label>
                 
-                </div> */}
+                </div>
               </div>
               </div>
 
