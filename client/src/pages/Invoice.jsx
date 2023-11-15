@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../print.css';
 import { FaFacebook,FaWhatsapp } from 'react-icons/fa';
+import Navbar from "../components/Navbar";
 const Invoice = () => {
   const [showReceipt, setShowReceipt] = useState(false);
   const [billFrom, setBillFrom] = useState("");
@@ -24,7 +25,7 @@ const Invoice = () => {
   const [advancepayment, setadvancepayment] = useState(0);
   const [notes, setnotes] = useState("");
    const [showAdditionalFields, setShowAdditionalFields] = useState(false);
-  
+   const [rowVisibility, setRowVisibility] = useState([]);
 
 
 const componentRef = useRef();
@@ -74,8 +75,11 @@ ${billTo}
   ]);
 
   const addRow = () => {
+   
+    setRowVisibility([...rowVisibility, true]);
     setRows([...rows, { description: "", price: 0, quantity: 0, amount: 0 }]);
   };
+  
   const updateRow = (index, field, value) => {
     const updatedRows = [...rows];
     updatedRows[index][field] = value;
@@ -168,8 +172,8 @@ ${billTo}
 
   return (
     <>
-     
-      <div className="container mt-10   w-10/12 ml-24 "  >
+     <Navbar></Navbar>
+      <div className="container mt-10   w-10/12 ml-36  "  >
         <div className="bg-white shadow-lg p-8 w-full">
           <div className="flex justify-center items-center mb-4 mr-32">
         
@@ -280,7 +284,7 @@ ${billTo}
         type="text"
         id="invoiceNumber"
         name="invoiceNumber"
-        className="rounded-md border-2 border-gray-400 pl-2 p-2 ml-48 mt-1"
+        className="rounded-md border-2 border-gray-400 pl-2 p-2 ml-48  mt-1"
         placeholder="Invoice Number"
         value={invoiceNumber}
         onChange={(e) => setinvoiceNumber(e.target.value)}
@@ -318,7 +322,7 @@ ${billTo}
     </thead>
     <tbody>
     {rows.map((row, index) => (
-  <tr key={index}>
+   <tr key={index} className={rowVisibility[index] ? 'visible' : 'hidden'}>
     <td className="p-2">
       <input
         type="text"

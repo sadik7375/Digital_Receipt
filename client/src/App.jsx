@@ -9,6 +9,8 @@ import Home from './pages/Home';
 import TuitionFee from './pages/rentReceipt';
 import TuitionfeeReceipt from './pages/TuitionfeeReceipt';
 import { BrowserRouter } from 'react-router-dom';
+import About from './pages/About';
+import Futuregoal from './pages/Futuregoal';
 
 
 
@@ -25,6 +27,8 @@ function App() {
         <Route path="/rentreceipt" element={<RentReceipt></RentReceipt>} />
         <Route path="/invoice" element={<Invoice></Invoice>} />
         <Route path="/tuitionfeereceipt" element={<TuitionfeeReceipt></TuitionfeeReceipt>} />
+        <Route path="/about" element={<About></About>} />
+        <Route path="/futuregoal" element={<Futuregoal></Futuregoal>} />
    
        
     

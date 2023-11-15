@@ -1,10 +1,8 @@
 import Navbar from '../components/Navbar';
-// import Downloadbtn from '../components/Downloadbtn';
-// import SocialIcon from '../components/SocialIcon';
 import ReactToPrint from 'react-to-print';
 import { useReactToPrint } from 'react-to-print';
 import React, { useState } from 'react';
-import { FaFacebook,FaWhatsapp } from 'react-icons/fa';
+import { FaWhatsapp } from 'react-icons/fa';
 import { CgMail } from 'react-icons/cg';
 import '../print.css'
 import { toast } from 'react-toastify';
@@ -12,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 // import '../print.css'
 const TuitionfeeReceipt = () => {
 
-  const [showReceipt, setShowReceipt] = useState(true);
+  const [showReceipt, setShowReceipt] = useState(false);
 
   const [studentid,setstudentid]=useState("");
   const [studentname,setstudentname]=useState();
@@ -28,6 +26,12 @@ const TuitionfeeReceipt = () => {
 
 
 
+ /* The above code is a React component that uses the `useReactToPrint` hook to handle printing
+ functionality. It creates a ref called `componentRef` that will be used to reference the component
+ to be printed. The `handlePrint` function is assigned the result of calling `useReactToPrint` with
+ an object that contains a `content` property. The `content` property is a function that returns the
+ `componentRef.current`, which is the current value of the ref. This allows the `useReactToPrint`
+ hook to access the component to be printed. */
   const componentRef = React.useRef();
 
   const handlePrint = useReactToPrint({
@@ -35,19 +39,14 @@ const TuitionfeeReceipt = () => {
     
   });
 
+/**
+ * The `handleEmail` function sends an email with a payment receipt attached.
+ */
   const handleEmail = () => {
     toast.success('Download and attact receipt with email', { autoClose: 3000 });
     const emailSubject = 'Payment Receipt';
     // const emailBody = `
-    //   Sender Name: ${senderName}
-    //   Receiver Name: ${receiverName}
-    //   Payment Amount: ${payAmount}
-    //   Due Amount: ${duepayAmount}
-    //   Payment Date: ${payDate}
-    //   Next Due Date: ${nextdueDate}
-    //   Address: ${address}
-    //   Additional Notes: ${additionalNote}
-    //   Additional Notes: ${photosign}
+  
     // `;
     const emailBody = `
     I received payment from ${studentname}.Thank you for your payment.Please check your payment receipt.
@@ -65,6 +64,10 @@ const TuitionfeeReceipt = () => {
 
  
 
+ /**
+  * The function `handleWhatsApp` is used to generate a WhatsApp message with specific information and
+  * open the WhatsApp app with the generated message.
+  */
   const handleWhatsApp = () => {
     
     const text = `
@@ -81,20 +84,7 @@ const TuitionfeeReceipt = () => {
 
     window.location.href = whatsappURL;
   };
-
-
-  const handleFacebook = () => {
-    // const pageURL = window.location.href; // The URL of your current web page
-
-    const facebookShareURL = `https://www.facebook.com/`;
-
-    window.open(facebookShareURL, '_blank');
-  };
-
-
-
-  
-    return (
+return (
         <>
             <Navbar></Navbar>
          
@@ -104,7 +94,7 @@ const TuitionfeeReceipt = () => {
           <div className="flex justify-between items-center mb-4">
             
                
-                {/* <Print ref={componentRef}  ></Print> */}
+               
                 <ReactToPrint
   trigger={() => (
 
@@ -121,7 +111,7 @@ const TuitionfeeReceipt = () => {
   content={() => componentRef.current}
 ></ReactToPrint>
 
-                {/* <SocialIcon></SocialIcon> */}
+               
           
       
             <div className="flex items-center space-x-4">
@@ -161,9 +151,7 @@ const TuitionfeeReceipt = () => {
             <form>
               <div className="flex items-center space-x-4 mb-4">
                 <div className="flex-1">
-                  {/* <label htmlFor="from"  className="block text-sm font-sm text-gray-600 gap-x-4   ">
-                    From:
-                  </label> */}
+              
                   
                   <input
                     type="text"
@@ -177,9 +165,7 @@ const TuitionfeeReceipt = () => {
                 
     
                 <div className="flex-1">
-                  {/* <label htmlFor="to" className="block text-sm  text-gray-600">
-                    To:
-                  </label> */}
+               
                   <input
                     type="text"
                     id="to"
@@ -192,9 +178,7 @@ const TuitionfeeReceipt = () => {
               </div>
               <div className="flex items-center space-x-4 mb-4">
                 <div className="flex-1">
-                  {/* <label htmlFor="paymentAmount" className="block text-sm  text-gray-600">
-                    Payment Amount:
-                  </label> */}
+          
                   <input
                     type="text"
                     id="paymentAmount"
@@ -205,9 +189,7 @@ const TuitionfeeReceipt = () => {
                   />
                 </div>
                 <div className="flex-1">
-                  {/* <label htmlFor="dueAmount" className="block text-sm  text-gray-600">
-                    Due Amount:
-                  </label> */}
+                
                   <input
                     type="text"
                     id="dueAmount"
@@ -270,9 +252,7 @@ const TuitionfeeReceipt = () => {
                 
     
               <div className="col-span-2">
-                {/* <label htmlFor="address" className="block text-sm  text-gray-600">
-                 
-                </label> */}
+                
                 <textarea
                   id="address"
                   name="address"
@@ -283,9 +263,7 @@ const TuitionfeeReceipt = () => {
                 />
               </div>
               <div className="col-span-2">
-                {/* <label htmlFor="notes" className="block text-sm  text-gray-600">
-                  Notes:
-                </label> */}
+             
                 <textarea
                   id="notes"
                   name="notes"
@@ -303,9 +281,7 @@ const TuitionfeeReceipt = () => {
                   <label htmlFor="senderSignature" className="block text-sm ml-8 text-gray-600 mb-8">
                     Sender Digital/Hand Signature:
                   </label>
-                  {/* <div className="border border-gray-400 h-8 rounded-md p-2">
-                    
-                  </div> */}
+               
                  <input
                      type="file"
                  id="senderSignature"
@@ -406,13 +382,6 @@ const TuitionfeeReceipt = () => {
 </div>
                 
               </div>
-    
-            {/* <div className="col-span-2">
-                <label htmlFor="address" className="block text-sm  text-gray-600">
-                 Institute/sender Name & Address:
-                </label>
-                {address}
-              </div> */}
            <div className="flex-1">
  <div className="flex items-center">
     <label htmlFor="paymentAmount" className="font-bold text-sm ml-8 text-gray-600">
@@ -429,9 +398,7 @@ const TuitionfeeReceipt = () => {
                   </label>
                   {photosign && (
   <div className="flex-1">
-    {/* <label htmlFor="senderSignature" className="block text-sm ml-12 text-gray-600 mb-8">
-      Sender Signature:
-    </label> */}
+
 
 <div htmlFor="senderSignature" className="block text-sm ml-6 text-gray-600 mb-4">
 <img

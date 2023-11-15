@@ -2,8 +2,6 @@
 import { FaFacebook,FaWhatsapp } from 'react-icons/fa';
 import { CgMail } from 'react-icons/cg';
 import Navbar from '../components/Navbar';
-import Downloadbtn from '../components/Downloadbtn';
-import SocialIcon from '../components/SocialIcon';
 import ReactToPrint from 'react-to-print';
 import { useReactToPrint } from 'react-to-print';
 import React, { useEffect, useState } from 'react';
@@ -17,7 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 // import '../print.css'
 const RentReceipt = () => {
 
-  const [showReceipt, setShowReceipt] = useState(true);
+  const [showReceipt, setShowReceipt] = useState(false);
 
   const [senderName,setsenderName]=useState("");
   const [receiverName,setreceiverName]=useState();
@@ -34,6 +32,12 @@ const RentReceipt = () => {
 
 
 
+ /* The above code is creating a React functional component. It defines a ref called `componentRef`
+ using the `useRef` hook. It also defines a function called `handlePrint` which uses the
+ `useReactToPrint` hook. The `useReactToPrint` hook takes an object as an argument with a `content`
+ property. The `content` property is a function that returns the value of `componentRef.current`.
+ This means that when the `handlePrint` function is called, it will print the content of the
+ component referenced by `componentRef`. */
   const componentRef = React.useRef();
 
   const handlePrint = useReactToPrint({
@@ -44,21 +48,15 @@ const RentReceipt = () => {
   );
   
 
+/* The above code is a JavaScript React code snippet. It defines a function called `handleEmail` which
+is responsible for sending an email with a payment receipt. */
 
   const handleEmail = () => {
 
     toast.success('Download and attact receipt with email', { autoClose: 20000 });
     const emailSubject = 'Payment Receipt';
     // const emailBody = `
-    //   Sender Name: ${senderName}
-    //   Receiver Name: ${receiverName}
-    //   Payment Amount: ${payAmount}
-    //   Due Amount: ${duepayAmount}
-    //   Payment Date: ${payDate}
-    //   Next Due Date: ${nextdueDate}
-    //   Address: ${address}
-    //   Additional Notes: ${additionalNote}
-    //   Additional Notes: ${photosign}
+ 
     // `;
     const emailBody = `
     I received payment from ${receiverName}.Thank you for your payment.Please check your payment receipt.
@@ -78,6 +76,10 @@ const RentReceipt = () => {
 
  
 
+/**
+ * The `handleWhatsApp` function sends a WhatsApp message with a payment receipt to a specified
+ * receiver.
+ */
   const handleWhatsApp = () => {
     toast.success('Attact Your receipt File', { autoClose: 3000 });
     const text = `
@@ -94,32 +96,12 @@ ${senderName}
   };
 
 
-  const handleFacebook = () => {
-    // const pageURL = window.location.href; // The URL of your current web page
-    toast.success('Attact Your receipt File', { autoClose: 3000 });
-    const facebookShareURL = `https://www.facebook.com/`;
- 
-
-    window.open(facebookShareURL, '_blank');
-  };
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * The function calculates the total amount by adding the monthly rent, advance payment, and utility
+ * money values.
+ */
   const calculateAmount = () => {
     const monthlyRentValue = parseFloat(monthlyRent);
     const advancePaymentValue = parseFloat(advancePayment);
@@ -130,14 +112,12 @@ ${senderName}
         let total=monthlyRentValue + advancePaymentValue + utilityMoneyValue;
         settotalAmount(total);
     }
-//    else if(!isNaN(monthlyRentValue)  && !isNaN(utilityMoneyValue) && !isNaN(advancePaymentValue)
 
-
-//            const total=monthlyRentValue + advancePaymentValue + utilityMoneyValue;
-//           settotalAmount(total);
-//   };
 }
 
+/* The above code is using the useEffect hook in a React component. It is being used to calculate the
+total amount by adding the values of monthlyRent, advancePayment, and utilityMoney. The
+calculateAmount function is called whenever any of these values change. */
  useEffect(()=>{
 
     // settotalAmount(monthlyRent+advancePayment+advancePayment)
@@ -161,8 +141,13 @@ ${senderName}
            
           <div className="flex justify-between items-center mb-4">
                
-                {/* <Print ref={componentRef}  ></Print> */}
-                <ReactToPrint
+               
+{/* The above code is using the ReactToPrint component from the React library to create a button that,
+when clicked, triggers a print action and downloads a receipt. The button is styled using Tailwind
+CSS classes. The handlePrint function is called when the button is clicked, and the setShowReceipt
+function is called to show the receipt. The content prop is set to a function that returns the
+componentRef.current value, which is a reference to the component that should be printed.  */}
+  <ReactToPrint
   trigger={() => (
     <button
       className="rounded-md bg-blue-800 text-white p-1 text-sm"
@@ -178,7 +163,7 @@ ${senderName}
   content={() => componentRef.current}
 ></ReactToPrint>
 
-                {/* <SocialIcon></SocialIcon> */}
+              
                 <div className="flex items-center space-x-4">
                  <label  className="rounded-md text-gray-400 p-1 text-md">Send Receipt   </label>
                   <div className="flex items-center space-x-2">
@@ -232,9 +217,7 @@ ${senderName}
                 
     
                 <div className="flex-1">
-                  {/* <label htmlFor="to" className="block text-sm  text-gray-600">
-                    To:
-                  </label> */}
+                 
                   <input
                     type="text"
                     id="to"
@@ -247,10 +230,7 @@ ${senderName}
               </div>
               <div className="flex items-center space-x-4 mb-4">
                 <div className="flex-1">
-                  {/* <label htmlFor="paymentAmount" className="block text-sm  text-gray-600">
-                    Payment Amount:
-                  </label> */}
-                  <input
+                 <input
                     type="text"
                     id="paymentAmount"
                     name="paymentAmount"
@@ -343,9 +323,7 @@ ${senderName}
                 
     
               <div className="col-span-2">
-                {/* <label htmlFor="address" className="block text-sm  text-gray-600">
-                 
-                </label> */}
+               
                 <textarea
                   id="address"
                   name="address"
@@ -356,9 +334,7 @@ ${senderName}
                 />
               </div>
               <div className="col-span-2">
-                {/* <label htmlFor="notes" className="block text-sm  text-gray-600">
-                  Notes:
-                </label> */}
+              
                 <textarea
                   id="notes"
                   name="notes"
@@ -387,15 +363,12 @@ ${senderName}
                   <label htmlFor="receiverSignature" className="block text-sm text-gray-600 ml-16 mb-8">
                     Receiver Signature:
                   </label>
-                  {/* <div className="border border-gray-400 h-8 rounded-md p-2">
-                   
-                  </div> */}
+                
                 </div>
               </div>
             
 
-                                                {/* {Print portion}        */}
-       
+                 {/* This code is Download Template*/}
            
               <div className={`receipt ${showReceipt ? 'visible' : 'hidden'}`} ref={componentRef}>
   
@@ -515,9 +488,7 @@ ${senderName}
                   </label>
                   {photo && (
   <div className="flex-1">
-    {/* <label htmlFor="senderSignature" className="block text-sm ml-12 text-gray-600 mb-8">
-      Sender Signature:
-    </label> */}
+    
 
 <div htmlFor="senderSignature" className="block text-sm ml-6 text-gray-600 mb-4">
 <img

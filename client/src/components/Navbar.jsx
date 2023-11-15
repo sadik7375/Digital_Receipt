@@ -12,11 +12,12 @@ const Navbar = () => {
            
              
               <Link className="text-white text-lg  hover:bg-white hover:text-blue-500" to="/">Home</Link>
+              <Link className="text-white text-lg  hover:bg-white hover:text-blue-500" to="/invoice">Invoice</Link>
               <Link className="text-white text-lg  hover:bg-white hover:text-blue-500" to="/rentreceipt">Rent </Link>
               <Link className="text-white text-lg  hover:bg-white hover:text-blue-500" to="/paymentreceipt">paymnet </Link>
               {/* <Link className="text-white text-lg  hover:bg-white hover:text-blue-500" to="/invoice">Subcription</Link> */}
               <Link className="text-white text-lg  hover:bg-white hover:text-blue-500" to="/tuitionfeereceipt">Tuition fee</Link>
-              <Link className="text-white text-lg  hover:bg-white hover:text-blue-500" to="/invoice">Invoice</Link>
+
            
             </nav>
           </div>
